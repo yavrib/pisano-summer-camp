@@ -1,0 +1,35 @@
+<!--h1>Eyırbiyenbi Home</h1-->
+<div class="video-container">
+  <video poster="" autoplay loop playsinline muted>
+    <source src="/vids/US_60_ANTHEM.mp4" type="">
+  </video>
+  <button class="btn btn-primary" ng-click="$ctrl.goToThisState(1)"> on video button </button>
+</div>
+<div class="listing-container">
+  <div class="listing-item" ng-repeat="listing in $ctrl.listings">
+  <!--WIP Show listings in two columns-->
+  <!--div class="row" ng-if="$index==$even">
+  <div class="col col-50"-->
+    <h2>{{listing.title}}</h2>
+    <div class="listing-item-capacity">Bed Capacity:
+      <!--{{listing.bed_capacity}}-->
+      <span  ng-repeat="bedNumber in $ctrl.getNumberOfBedCapacity(listing) track by $index"><img class="bed-icons" ng-src="img/bed.png"></span>
+    </div>
+    <div>
+      <span>{{listing.created_at | date}}</span><br>
+      <div class="listing-item-capacity">
+        <span ng-click="$ctrl.goToUserPage(listing)">
+          <!--span><a ui-sref="user/{{listing.user_id}}"-->{{$ctrl.getUserName(listing)}}</span>
+        </div>
+      </div>
+      <img ng-src="{{listing.image_url}}">
+      <!--a href="#{{$ctrl.getUserOfListing(listing.user_id).id}}">{{$ctrl.getUserOfListing(listing.user_id).first_name}}</a-->
+  </div>
+  <!--/div>
+  </div-->
+  <div>
+    <br>
+    Contact
+    <br>
+  </div>
+</div>

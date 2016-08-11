@@ -1,0 +1,18 @@
+<div class="user-container">
+<div>
+<h1><strong>Your host</strong></h1>
+</div>
+<div class="user-information">
+<span>
+<img class="picture-of-user" ng-src="{{$ctrl.getPictureOfUser()}}">
+<h2 class="user-name">{{$ctrl.getFullNameOfUser()}}</h2>
+</span>
+<br>
+<span>Joined us in: {{ $ctrl.getJoinDateOfUser() | date }}</span>
+</div>
+<div class="rating">Rating: </div>
+<br>
+<div class="contact-user">
+  <a href="mailto:{{$ctrl.getEmailOfUser()}}"><button class="btn btn-info">Contact User</button></a>
+</div>
+</div>

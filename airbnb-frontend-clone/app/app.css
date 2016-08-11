@@ -1,0 +1,54 @@
+/* BGCOLOR      #FAFAFA */
+/* FONTCOLOR    #3A4057 */
+/* PRIMARYCOLOR #31B88F */
+
+body {
+  background: #FAFAFA;
+  color: #3A4057;
+}
+
+.icon {
+  background-image: url('../assets/logo_green.svg');
+  height: 72px;
+  margin: auto;
+  width: 204px;
+}
+
+.listing-item-capacity {
+  color: #31B88F;
+}
+
+.listing-item {
+  text-align: center;
+}
+
+.listing-container {
+    margin-top: 60%;
+}
+
+.bed-icons {
+  width: 20px;
+  height: 20px;
+}
+
+.user-container {
+  margin-right: 25%;
+  margin-left: 25%;
+  width: 50%
+}
+.picture-of-user {
+  display: inline;
+}
+.user-name {
+
+}
+video{
+  background-size: cover;
+  position: absolute;
+  z-index: -100;
+  width: 100%;
+}
+.video-container{
+  position: relative;
+  width: 100%;
+}
