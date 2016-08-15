@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
+  skip_before_action :authenticate_by_token, only: [:create, :login, :index, :show]
 
   # GET /users
   def index
@@ -36,6 +37,25 @@ class UsersController < ApplicationController
   # DELETE /users/1
   def destroy
     @user.destroy
+  end
+
+  def login
+    user = User.find_by(email: params[:user][:email])
+    if user && user.authenticate(params[:user][:password])
+      # Generate Token
+      user.generate_token!
+
+      render json: user
+    else
+      render json: {}, status: :unprocessable_entity
+    end
+  end
+
+  def logout
+    # Destroy Token
+    @current_user.update(token: nil)
+
+    render json: @current_user
   end
 
   private

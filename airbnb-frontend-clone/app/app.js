@@ -3,20 +3,28 @@ import 'app.css';
 
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
+import ngCookies from 'angular-cookies';
 
 import AppComponent from './app.component';
 import Home from './home';
+import User from './models/user';
 import Listing from './models/listing';
-import User from './user';
+import UserPage from './userPage';
 import ListingPage from './listingPage';
+import LoginPage from './loginPage';
+import SignUpPage from './signUpPage'
 
 const root = angular
   .module('eyirbiyenbiApp', [
     Home,
     uiRouter,
-    Listing,
+    ngCookies,
     User,
-    ListingPage
+    Listing,
+    UserPage,
+    ListingPage,
+    LoginPage,
+    SignUpPage
   ])
   .config(($locationProvider, $urlRouterProvider) => {
     $locationProvider.html5Mode({
@@ -25,7 +33,7 @@ const root = angular
     });
     $urlRouterProvider.otherwise('/');
   })
-  .constant('API_URL','http://localhost:3000')
+  .constant('API_URL','http://localhost:3000')//'https://eyirbiyenbi-api-fabien.herokuapp.com')
   .constant('ROOT_URL','http://localhost:8080')
   .component('app', AppComponent)
   .name;

@@ -15,7 +15,9 @@ class ListingModel {
   getSelectedListing(id) {
     return this.$http.get(this.API_URL + '/listings/' + id)
   }
-
+  getUserOfListing(listing){
+    this.$http.get(this.API_URL+'/users/'+listing.user_id)
+  }
 }
 
 ListingModel.$inject = ['$http', 'API_URL'];

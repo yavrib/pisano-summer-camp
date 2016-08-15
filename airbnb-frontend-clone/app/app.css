@@ -12,18 +12,67 @@ body {
   height: 72px;
   margin: auto;
   width: 204px;
+  margin-left: 0px;
+  display: inline-block;
 }
-
+.facebook-icon{
+  background-image: url('/img/facebook.svg');
+  height: 24px;
+  margin: auto;
+  width: 24px;
+  float: right;
+  display: inline-block;
+  margin-right: 5px;
+}
+.instagram-icon{
+  background-image: url('/img/instagram.svg');
+  height: 24px;
+  margin: auto;
+  width: 24px;
+  float: right;
+  display: inline-block;
+  margin-right: 5px;
+}
+.twitter-icon{
+  background-image: url('/img/twitter.svg');
+  height: 24px;
+  margin: auto;
+  width: 24px;
+  float: right;
+  display: inline-block;
+  margin-right: 5px;
+}
 .listing-item-capacity {
   color: #31B88F;
 }
-
-.listing-item {
+.listings-title{
+  background-color: #31B88F;
+  color: white;
+  margin-left: -50%;
+  margin-right: -50%;
   text-align: center;
+  font-size: 32px;
+  height: 64px;
+  line-height: 64px;
 }
 
 .listing-container {
-    margin-top: 60%;
+  margin-top: 60%;
+}
+.listing-title{
+  display: block;
+}
+.listing-image{
+  display: inline;
+}
+.listing-information{
+  vertical-align: top;
+  display: inline-flex;
+  margin-left: 24px;
+}
+.listing-information-detail{
+  vertical-align: top;
+  display: block;
 }
 
 .bed-icons {
@@ -32,9 +81,8 @@ body {
 }
 
 .user-container {
-  margin-right: 25%;
-  margin-left: 25%;
-  width: 50%
+  margin-right: 10%;
+  margin-left: 10%;
 }
 .picture-of-user {
   display: inline;
@@ -42,13 +90,85 @@ body {
 .user-name {
 
 }
+.user-listings-title{
+  color: #31B88F;
+}
 video{
   background-size: cover;
   position: absolute;
   z-index: -100;
   width: 100%;
+  border: 1px white dotted;
+
 }
 .video-container{
   position: relative;
   width: 100%;
+  margin-top: 0px;
+  border: 1px white dotted;
+}
+
+.login-area{
+  text-align: left;
+  display: inline;
+  margin-left: 0px;
+}
+.sign-up-area{
+  text-align: left;
+  display: inline;
+  margin-left: 0px;
+  background-color: #31B88F;
+  color: white;
+}
+.search-area{
+  text-align: right;
+  display: inline;
+  margin-right: 0px;
+  float: right;
+  margin-top: 24px;
+}
+.main-page-header{
+  height: 64px;
+  line-height: 64px;
+}
+
+.main-page-footer{
+  height: 64px;
+  line-height: 64px;
+  bottom: 0px;
+  margin-top: 33%;
+}
+
+.user-detail{
+  display: flex;
+}
+.user-picture{
+  display: block;
+}
+.user-information{
+  vertical-align: middle;
+  display: block;
+  margin-left: 24px;
+  margin-top: 75px;
+}
+.user-information-detail{
+  vertical-align: middle;
+  display: block;
+}
+.login-elements{
+  margin: 0 auto;
+  text-align: center;
+}
+.login-credentials{
+  display: block;
+  width: 200px;
+  margin: 0 auto;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+.btn-eyirbiyenbi{
+  background-color: #31B88F;
+  color:white;
+  margin-top: 2px;
+  margin-bottom: 5px;
 }

@@ -1,7 +1,20 @@
 class AppController {
-  constructor() { }
+  constructor($state) {
+    this.$state = $state;
+  }
 
-  $onInit() { }
+  $onInit() {
+  }
+
+  goToHome(){
+    this.$state.go('home')
+  }
+  goToLogin(){
+    this.$state.go('loginPage')
+  }
+  goToSignUp(){
+    this.$state.go('signUpPage')
+  }
 }
 
 export default AppController;

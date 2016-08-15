@@ -1,5 +1,15 @@
-<div class="container">
-  <div class="icon"></div>
 
+<div class="container">
+<header class="main-page-header">
+  <button ng-click="$ctrl.goToLogin()" class="login-area btn btn-default">Login</button>
+  <button ng-click="$ctrl.goToSignUp()" class="sign-up-area btn">Sign Up</button>
+  <!--div class="search-area">Search</div-->
+</header>
+  <div ng-click="$ctrl.goToHome()" class="icon"></div>
+  <div class="instagram-icon"></div>
+  <div class="twitter-icon"></div>
+  <div class="facebook-icon"></div>
   <ui-view />
 </div> <!-- /container -->
+<div class="main-page-footer listings-title">Contact</div><!--TODO Set footer on the bottom of the page-->
+

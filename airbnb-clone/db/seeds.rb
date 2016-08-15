@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+=begin
 25.times do
   User.create(first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -27,5 +28,13 @@ User.all.each do |user|
      )
   end
 end
+=end
+User.create(first_name: 'test',
+            last_name: 'test',
+            password: 'password',
+            email: 'test@test.co',
+            phone_number: '1234567890',
+            profile_picture_url: 'http://lorempixel.com/300/300'
+  )
 
 

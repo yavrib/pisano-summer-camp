@@ -1,21 +1,27 @@
 class HomeController {
-  constructor($http, ListingModel, $state) {
+  constructor($http, ListingModel, UserModel, $state) {
     this.$http = $http;
     this.$state = $state;
     this.ListingModel = ListingModel;
+    this.UserModel = UserModel;
+    this.shared_room_type = {
+      'shared_room' : 'Shared Room',
+      'entire_house': 'Entire House',
+      'private_room': 'Private Room'
+    }
   }
-
-$onInit() {
-  this.ListingModel.query()
+  $onInit() {
+    this.ListingModel.query()
     .then((response) => {
-      //console.log(response.data);
       this.listings = response.data;
-      console.log(this.listings.length)
     })
-  this.ListingModel.getUsersOfListings()
+    this.UserModel.getUsers()
     .then((response) => {
       this.users = response.data;
     })
+  }
+  getBedCapacity(listing){
+    return new Array(listing.bed_capacity);
   }
   getUserOfListing(listing){
     var user = this.users.filter((user) => listing.user_id == user.id)
@@ -31,14 +37,14 @@ $onInit() {
     var user_name = user.first_name + " " + user.last_name;
     return user_name
   }
+  getSharingType(listing){
+    return this.shared_room_type[listing.sharing_type]
+  }
   goToUserPage(listing){
-    this.$state.go('user',{'id':listing.user_id})
+    this.$state.go('userPage',{'id':listing.user_id})
   }
-  goToThisState(id){
-    this.$state.go('listingPage',{'id':id})
-  }
-  getNumberOfBedCapacity(listing){
-    return new Array(listing.bed_capacity);
+  goToListingPage(listing){
+    this.$state.go('listingPage',{'id':listing.id})
   }
 }
 

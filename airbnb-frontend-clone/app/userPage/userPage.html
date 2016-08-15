@@ -1,0 +1,50 @@
+<div class="user-container">
+  <div class="user-detail">
+    <img class="user-picture" ng-src="{{$ctrl.user.profile_picture_url}}">
+    <div class="user-information">
+      <h2 class="user-information-detail">{{$ctrl.getFullNameOfUser()}}</h2>
+      <h2 class="user-information-detail">{{$ctrl.user.phone_number}}</h2>
+      <h2 class="user-information-detail"><a href="mailto:{{$ctrl.user.mail}}">{{$ctrl.user.email}}</a></h2>
+    </div>
+  </div>
+  <br>
+  <h1 class="user-listings-title">Current houses</h1>
+  <br>
+  <div class="listings-in-user-detail">
+    <div ng-repeat="listing in $ctrl.listings_of_user">
+      <div class="listing-title">
+        <span><h2 ng-click="$ctrl.goToListingPage(listing)">{{listing.title}}</h2></span>
+      </div>
+      <div>
+      <span class="listing-image">
+        <img ng-click="$ctrl.goToListingPage(listing)" ng-src="{{listing.image_url}}">
+      </span>
+      <span class="listing-information">
+        <div class="listing-information-detail">
+         <h3>Daily Price: {{listing.daily_price}}</h3>
+         <h3>Sharing Type: {{$ctrl.shared_room_type[listing.sharing_type]}}</h3>
+         <h3>Bed Capacity: <span ng-repeat="bed_capacity in $ctrl.getBedCapacity(listing) track by $index"><img class="bed-icons" ng-src="/img/bed.png"></span></h3>
+        </div>
+      </span>
+      </div>
+    </div>
+  </div>
+</div>
+<!--
+<div>
+<h1><strong>Your host</strong></h1>
+</div>
+<div class="user-information">
+<span>
+<img class="picture-of-user" ng-src="{{$ctrl.getPictureOfUser()}}">
+<h2 class="user-name">{{$ctrl.getFullNameOfUser()}}</h2>
+</span>
+<br>
+<span>Joined us in: {{ $ctrl.getJoinDateOfUser() | date }}</span>
+</div>
+<div class="rating">Rating: </div>
+<br>
+<div class="contact-user">
+  <a href="mailto:{{$ctrl.getEmailOfUser()}}"><button class="btn btn-info">Contact User</button></a>
+</div>
+-->

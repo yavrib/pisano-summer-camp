@@ -2,34 +2,56 @@
 <div class="video-container">
   <video poster="" autoplay loop playsinline muted>
     <source src="/vids/US_60_ANTHEM.mp4" type="">
-  </video>
-  <button class="btn btn-primary" ng-click="$ctrl.goToThisState(1)"> on video button </button>
-</div>
-<div class="listing-container">
-  <div class="listing-item" ng-repeat="listing in $ctrl.listings">
-  <!--WIP Show listings in two columns-->
-  <!--div class="row" ng-if="$index==$even">
-  <div class="col col-50"-->
-    <h2>{{listing.title}}</h2>
+    </video>
+  </div>
+  <div class="listing-container">
+    <!--TODO Listings title increases the width of page, fix it-->
+    <div class="listings-title">Houses</div>
+    <div ng-repeat="listing in $ctrl.listings">
+      <div class="listing-title">
+        <span><h2 ng-click="$ctrl.goToListingPage(listing)">{{listing.title}}</h2></span>
+      </div>
+      <div>
+      <span class="listing-image">
+        <img ng-click="$ctrl.goToListingPage(listing)" ng-src="{{listing.image_url}}">
+      </span>
+      <span class="listing-information">
+        <div class="listing-information-detail">
+         <h3>Daily Price: {{listing.daily_price}}</h3>
+         <h3 ng-click="$ctrl.goToUserPage(listing)">Host: {{$ctrl.getUserName(listing)}}</h3>
+         <h3>Sharing Type: {{$ctrl.getSharingType(listing)}}</h3>
+         <h3>Bed Capacity: <span ng-repeat="bed_capacity in $ctrl.getBedCapacity(listing) track by $index"><img class="bed-icons" ng-src="img/bed.png"></span></h3>
+        </div>
+      </span>
+      </div>
+    </div>
+  </div>
+  <br>
+<!--
+<div class="listing-item" ng-repeat="listing in $ctrl.listings">
+  <!WIP Show listings in two columns>
+  <!div class="row" ng-if="$index==$even">
+  <div class="col col-50">
+    <h2 ng-click="$ctrl.goToListingPage(listing)">{{listing.title}}</h2>
     <div class="listing-item-capacity">Bed Capacity:
-      <!--{{listing.bed_capacity}}-->
+      <!{{listing.bed_capacity}}>
       <span  ng-repeat="bedNumber in $ctrl.getNumberOfBedCapacity(listing) track by $index"><img class="bed-icons" ng-src="img/bed.png"></span>
     </div>
     <div>
       <span>{{listing.created_at | date}}</span><br>
       <div class="listing-item-capacity">
         <span ng-click="$ctrl.goToUserPage(listing)">
-          <!--span><a ui-sref="user/{{listing.user_id}}"-->{{$ctrl.getUserName(listing)}}</span>
+          <!span><a ui-sref="user/{{listing.user_id}}">{{$ctrl.getUserName(listing)}}</span>
         </div>
       </div>
-      <img ng-src="{{listing.image_url}}">
-      <!--a href="#{{$ctrl.getUserOfListing(listing.user_id).id}}">{{$ctrl.getUserOfListing(listing.user_id).first_name}}</a-->
+      <img ng-click="$ctrl.goToListingPage(listing)" ng-src="{{listing.image_url}}">
+      <!a href="#{{$ctrl.getUserOfListing(listing.user_id).id}}">{{$ctrl.getUserOfListing(listing.user_id).first_name}}</a>
   </div>
-  <!--/div>
-  </div-->
+  <!/div>
+  </div>
   <div>
     <br>
     Contact
     <br>
   </div>
-</div>
+-->
