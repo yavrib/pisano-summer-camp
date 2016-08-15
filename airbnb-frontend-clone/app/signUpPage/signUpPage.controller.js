@@ -9,9 +9,7 @@ class SignUpPageController{
         'first_name':null,
         'last_name':null,
         'email': null,
-        'password':null,
-        'phone_number': null,
-        'profile_picture_url': null
+        'password':null
       }
     }
     this.url = API_URL + '/users'
@@ -22,6 +20,7 @@ class SignUpPageController{
   signUp(){
     //Some http request
     if(this.verifyPassword()){
+      console.log(this.userCredentials)
       this.$http.post(this.url,this.userCredentials)
       .then((response) => {
         console.log(response)
