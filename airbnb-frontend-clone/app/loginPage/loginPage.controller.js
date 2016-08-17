@@ -1,9 +1,9 @@
 class LoginPageController{
-  constructor($http,$state,$stateParams,$cookieStore,API_URL){
+  constructor($http,$state,$cookieStore,API_URL,Authentication){
     this.$http = $http;
     this.$state = $state;
-    this.$stateParams = $stateParams;
     this.$cookieStore = $cookieStore;
+    this.Authentication = Authentication;
     this.userCredentials = {
       'user' : {
         'email': null,
@@ -17,11 +17,8 @@ class LoginPageController{
   }
   login(){
     //Some http request
-    this.$http.post(this.url,this.userCredentials)
-      .then((response) => {
-        this.$cookieStore.put('eyirbiyenbi-token',response.data.token);
-        this.$state.go('home')
-      })
+    this.Authentication.login(this.userCredentials)
+    this.Authentication.checkUserToken()
   }
 }
 

@@ -1,9 +1,9 @@
 class SignUpPageController{
-  constructor($http,$state,$stateParams,$cookieStore,API_URL){
+  constructor($http,$state,$cookieStore,API_URL,Authentication){
     this.$http = $http;
     this.$state = $state;
-    this.$stateParams = $stateParams;
     this.$cookieStore = $cookieStore;
+    this.Authentication = Authentication;
     this.userCredentials = {
       'user' : {
         'first_name':null,
@@ -18,15 +18,9 @@ class SignUpPageController{
   $onInit(){
   }
   signUp(){
-    //Some http request
     if(this.verifyPassword()){
-      console.log(this.userCredentials)
-      this.$http.post(this.url,this.userCredentials)
-      .then((response) => {
-        console.log(response)
-        this.$cookieStore.put('eyirbiyenbi-token',response.data.token);
-        this.$state.go('home')
-      })
+      this.Authentication.signUp(this.userCredentials)
+      this.Authentication.checkUserToken()
     } else {
       alert('Passwords do not match!')
     }
@@ -36,6 +30,14 @@ class SignUpPageController{
       return true
     } else {
       return false
+    }
+  }
+  checkUserToken(){
+    var tokenCookie = this.$cookieStore.get('eyirbiyenbi-token');
+    if(tokenCookie && tokenCookie.token){
+      this.userLoggedIn = true;
+    } else {
+      this.userLoggedIn = false;
     }
   }
 }

@@ -26,6 +26,8 @@ class ListingsController < ApplicationController
 
   # PATCH/PUT /listings/1
   def update
+    authorize @listing
+
     if @listing.update(listing_params)
       render json: @listing
     else
@@ -35,6 +37,8 @@ class ListingsController < ApplicationController
 
   # DELETE /listings/1
   def destroy
+    authorize @listing
+
     @listing.destroy
   end
 
@@ -46,6 +50,7 @@ class ListingsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def listing_params
-      params.fetch(:listing, {})
+    #  params.fetch(:listing, {})
+      params.require(:listing).permit(:image_url, :user_id, :title, :sharing_type, :guest_capacity, :bed_capacity, :daily_price)
     end
 end

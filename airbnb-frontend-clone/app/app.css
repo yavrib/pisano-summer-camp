@@ -92,6 +92,7 @@ body {
 }
 .user-listings-title{
   color: #31B88F;
+  display: inline;
 }
 video{
   background-size: cover;
@@ -172,3 +173,16 @@ video{
   margin-top: 2px;
   margin-bottom: 5px;
 }
+.log-out-area{
+  text-align: left;
+  display: inline;
+  margin-left: 0px;
+  background-color: white;
+}
+
+.edit-listing-button{
+  float:right;
+  margin-left: 1px;
+  margin-right: 1px;
+}
+

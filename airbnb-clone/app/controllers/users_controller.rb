@@ -48,7 +48,7 @@ class UsersController < ApplicationController
 
       render json: user
     else
-      render json: {}, status: :unprocessable_entity
+      render json: { 'message' => 'Bad Credentials' }, status: :unprocessable_entity
     end
   end
 

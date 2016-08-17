@@ -12,7 +12,9 @@ import Listing from './models/listing';
 import UserPage from './userPage';
 import ListingPage from './listingPage';
 import LoginPage from './loginPage';
-import SignUpPage from './signUpPage'
+import SignUpPage from './signUpPage';
+import AddListing from './addListing';
+import Authentication from './services';
 
 const root = angular
   .module('eyirbiyenbiApp', [
@@ -24,7 +26,9 @@ const root = angular
     UserPage,
     ListingPage,
     LoginPage,
-    SignUpPage
+    SignUpPage,
+    AddListing,
+    Authentication
   ])
   .config(($locationProvider, $urlRouterProvider) => {
     $locationProvider.html5Mode({

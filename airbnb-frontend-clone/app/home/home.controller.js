@@ -9,6 +9,8 @@ class HomeController {
       'entire_house': 'Entire House',
       'private_room': 'Private Room'
     }
+    this.users = [];
+
   }
   $onInit() {
     this.ListingModel.query()
