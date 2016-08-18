@@ -5,6 +5,9 @@ class UserPageController {
     this.UserModel = UserModel;
     this.ListingModel = ListingModel;
     this.user_id = $stateParams.id;
+    this.user = {
+      'first_name':null
+    };
     this.shared_room_type = {
       'shared_room' : 'Shared Room',
       'entire_house': 'Entire House',
@@ -13,7 +16,6 @@ class UserPageController {
     this.currentUser = $cookieStore.get('eyirbiyenbi-token')
   }
   $onInit() {
-    console.log(this.currentUser)
     this.UserModel.getUser(this.user_id)
       .then((response) => {
         this.user = response.data;
@@ -24,7 +26,8 @@ class UserPageController {
       })
   }
   getFullNameOfUser(){
-    var full_name = this.user.first_name + " " + this.user.last_name;
+    let full_name;
+    full_name = this.user.first_name + " " + this.user.last_name;
     return full_name
   }
   goToListingPage(listing){
@@ -45,9 +48,7 @@ class UserPageController {
   }
   */
   deleteListing(listing){
-    console.log(listing)
     this.UserModel.deleteListing(listing)
-    this.$state.go('home')
   }
 
 }

@@ -48,8 +48,8 @@ body {
 .listings-title{
   background-color: #31B88F;
   color: white;
-  margin-left: -50%;
-  margin-right: -50%;
+  /*margin-left: -50%;
+  margin-right: -50%;*/
   text-align: center;
   font-size: 32px;
   height: 64px;
@@ -57,7 +57,7 @@ body {
 }
 
 .listing-container {
-  margin-top: 60%;
+  /*margin-top: 60%;*/
 }
 .listing-title{
   display: block;
@@ -104,9 +104,10 @@ video{
 }
 .video-container{
   position: relative;
-  width: 100%;
-  margin-top: 0px;
-  border: 1px white dotted;
+  width: auto;
+  height: 675px;
+  /*margin-top: 0px;
+  border: 1px white dotted;*/
 }
 
 .login-area{
@@ -136,8 +137,8 @@ video{
 .main-page-footer{
   height: 64px;
   line-height: 64px;
-  bottom: 0px;
-  margin-top: 33%;
+  /*bottom: 0px;*/
+  position: absolute;
 }
 
 .user-detail{
@@ -186,3 +187,13 @@ video{
   margin-right: 1px;
 }
 
+.footer-title{
+  background-color: #31B88F;
+  color: white;
+  text-align: center;
+  font-size: 32px;
+  height: 64px;
+  line-height: 64px;
+  left: 0px;
+  right: 0px;
+}

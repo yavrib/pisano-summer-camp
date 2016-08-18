@@ -10,6 +10,7 @@ class HomeController {
       'private_room': 'Private Room'
     }
     this.users = [];
+    this.listings = [];
 
   }
   $onInit() {
@@ -26,7 +27,8 @@ class HomeController {
     return new Array(listing.bed_capacity);
   }
   getUserOfListing(listing){
-    var user = this.users.filter((user) => listing.user_id == user.id)
+    let user;
+    user = this.users.filter((user) => listing.user_id == user.id)
     return user[0]
     /*for (var index = 0; index <= user_count; index++) {
       if(listing.user_id==this.users[index].id){
@@ -35,8 +37,12 @@ class HomeController {
     }*/
   }
   getUserName(listing){
-    var user = this.getUserOfListing(listing);
-    var user_name = user.first_name + " " + user.last_name;
+    let user = this.getUserOfListing(listing);
+    let first_name;
+    let last_name;
+    first_name = user.first_name;
+    last_name = user.last_name;
+    let user_name = first_name + " " + last_name;
     return user_name
   }
   getSharingType(listing){

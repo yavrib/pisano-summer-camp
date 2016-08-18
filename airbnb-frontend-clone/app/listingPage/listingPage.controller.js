@@ -4,6 +4,9 @@ class ListingPageController{
     this.ListingModel = ListingModel;
     this.$state = $state;
     this.UserModel = UserModel;
+    this.user = {
+      'first_name':null
+    };
     this.$stateParams = $stateParams;
     this.shared_room_type = {
       'shared_room' : 'Shared Room',
@@ -29,13 +32,19 @@ class ListingPageController{
     })
   }
   getUserName(){
-    return this.user.first_name + " " + this.user.last_name
+    let first_name;
+    let last_name;
+    first_name = this.user.first_name;
+    last_name = this.user.last_name;
+    return first_name + " " + last_name
   }
   getSharedRoomType(){
     return this.shared_room_type[this.listing.sharing_type]
   }
   getBedCapacity(listing){
-    return new Array(listing.bed_capacity);
+    let bed_capacity;
+    bed_capacity = listing.bed_capacity
+    return new Array(bed_capacity);
   }
   goToUserPage(listing){
     this.$state.go('userPage',{'id':listing.user_id})

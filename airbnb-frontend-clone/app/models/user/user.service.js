@@ -1,7 +1,8 @@
 class UserModel {
-  constructor($http,API_URL,$cookieStore) {
+  constructor($http,API_URL,$cookieStore,$state) {
     this.$http = $http;
     this.API_URL = API_URL;
+    this.$state = $state;
     this.$cookieStore = $cookieStore;
   }
 
@@ -23,9 +24,11 @@ class UserModel {
     return this.$http.get(this.API_URL+'/users/'+id)
   }
   addListing(listing){
-    console.log(listing)
     var url = this.API_URL+'/listings?token='+this.$cookieStore.get('eyirbiyenbi-token').token
     this.$http.post(url,listing)
+      .then((response)=>{
+        this.$state.go('home', {}, {reload:true})
+      })
   }
   /*
   editListing(listing){
@@ -36,10 +39,13 @@ class UserModel {
   deleteListing(listing){
     var url = this.API_URL+'/listings/'+listing.id+'?token='+this.$cookieStore.get('eyirbiyenbi-token').token
     this.$http.delete(url,listing)
+      .then((response)=>{
+        this.$state.go('home')
+      })
   }
 
 }
 
-UserModel.$inject = ['$http', 'API_URL', '$cookieStore'];
+UserModel.$inject = ['$http', 'API_URL', '$cookieStore', '$state'];
 
 export default UserModel;

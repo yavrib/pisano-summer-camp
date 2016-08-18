@@ -5,8 +5,8 @@ class ListingPolicy < ApplicationPolicy
     end
   end
   def destroy?
-    #record.user_id == user.id
-    true
+    record.user_id == user.id
+    #true
   end
   def update?
     record.user_id == user.id

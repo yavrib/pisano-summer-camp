@@ -11,8 +11,8 @@ class Authentication {
     this.$http.post(url,userCredentials)
       .then((response) => {
         this.$cookieStore.put('eyirbiyenbi-token',response.data);
-        this.checkUserToken();
-        this.$state.go(this.$cookieStore.get('eyirbiyen-previous-state'))
+        this.$state.go(this.$cookieStore.get('eyirbiyen-previous-state'), {}, {reload:true})
+        this.checkUserToken()
       }, ((response) => {
         console.log(response.data.error)
       }))
@@ -22,7 +22,7 @@ class Authentication {
     this.$http.post(url,userCredentials)
       .then((response) => {
         this.$cookieStore.put('eyirbiyenbi-token',response.data);
-        this.$state.go(this.$cookieStore.get('eyirbiyen-previous-state'))
+        this.$state.go(this.$cookieStore.get('eyirbiyen-previous-state'), {}, {reload:true})
         this.checkUserToken()
       }, ((response) => {
         console.log(response.data.error)

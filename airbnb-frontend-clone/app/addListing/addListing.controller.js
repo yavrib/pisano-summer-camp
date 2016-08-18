@@ -28,7 +28,7 @@ class AddListingController{
   }
   addListing(){
     this.UserModel.addListing(this.newListing);
-    this.$state.go('userPage',{'id':this.currentUser.id})
+    //this.$state.go('userPage',{'id':this.currentUser.id})
 
   }
 }

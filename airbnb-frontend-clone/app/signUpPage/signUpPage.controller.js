@@ -32,14 +32,6 @@ class SignUpPageController{
       return false
     }
   }
-  checkUserToken(){
-    var tokenCookie = this.$cookieStore.get('eyirbiyenbi-token');
-    if(tokenCookie && tokenCookie.token){
-      this.userLoggedIn = true;
-    } else {
-      this.userLoggedIn = false;
-    }
-  }
 }
 
 export default SignUpPageController;
