@@ -9,7 +9,7 @@
   </div>
   <br>
   <h1 class="user-listings-title">Current houses</h1>
-  <button class="btn btn-eyirbiyenbi edit-listing-button" ng-click="$ctrl.goToAddListing()" ng-show="{{$ctrl.user_id}}=={{$ctrl.currentUser.id}}">Add listing</button>
+  <button class="btn btn-eyirbiyenbi edit-listing-button" ng-click="$ctrl.goToAddListing()" ng-show="$ctrl.user_id==$ctrl.currentUser.id">Add listing</button>
   <br>
   <div class="listings-in-user-detail">
     <div ng-repeat="listing in $ctrl.listings_of_user">
@@ -28,7 +28,7 @@
         </div>
       </span>
       </div>
-      <button class="btn btn-eyirbiyenbi edit-listing-button" ng-click="$ctrl.deleteListing(listing)" ng-show="{{$ctrl.user_id}}=={{$ctrl.currentUser.id}}">Delete listing</button>
+      <button class="btn btn-eyirbiyenbi edit-listing-button" ng-click="$ctrl.deleteListing(listing)" ng-show="$ctrl.user_id==$ctrl.currentUser.id">Delete listing</button>
       <br><br>
     </div>
   </div>

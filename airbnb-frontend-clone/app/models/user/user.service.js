@@ -27,7 +27,8 @@ class UserModel {
     var url = this.API_URL+'/listings?token='+this.$cookieStore.get('eyirbiyenbi-token').token
     this.$http.post(url,listing)
       .then((response)=>{
-        this.$state.go('home', {}, {reload:true})
+        //this.$state.go('home', {}, {reload:true})
+        this.$state.go('userPage',{'id':this.$cookieStore.get('eyirbiyenbi-token').id})
       })
   }
   /*

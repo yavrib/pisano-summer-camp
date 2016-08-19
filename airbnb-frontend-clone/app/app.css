@@ -83,6 +83,7 @@ body {
 .user-container {
   margin-right: 10%;
   margin-left: 10%;
+  min-height: 785px;
 }
 .picture-of-user {
   display: inline;
@@ -160,6 +161,7 @@ video{
 .login-elements{
   margin: 0 auto;
   text-align: center;
+  min-height: 765px;
 }
 .login-credentials{
   display: block;
@@ -196,4 +198,10 @@ video{
   line-height: 64px;
   left: 0px;
   right: 0px;
+}
+.listing-detail-container{
+  min-height: 765px;
+}
+.add-listing-container{
+  min-height: 778px;
 }

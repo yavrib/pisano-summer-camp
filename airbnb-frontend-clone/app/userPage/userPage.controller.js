@@ -17,13 +17,13 @@ class UserPageController {
   }
   $onInit() {
     this.UserModel.getUser(this.user_id)
-      .then((response) => {
-        this.user = response.data;
-      })
+    .then((response) => {
+      this.user = response.data;
+    })
     this.ListingModel.query()
-      .then((response) => {
-        this.listings_of_user = response.data.filter((listing) => listing.user_id == this.user.id)
-      })
+    .then((response) => {
+      this.listings_of_user = response.data.filter((listing) => listing.user_id == this.user.id)
+    })
   }
   getFullNameOfUser(){
     let full_name;

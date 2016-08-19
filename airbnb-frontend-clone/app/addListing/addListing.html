@@ -1,20 +1,16 @@
-<div>
+<div class="add-listing-container">
   <h2 class="login-credentials">New Listing</h2>
   <br>
   <input class="login-credentials" name="listing_image" placeholder="Image URL" ng-model="$ctrl.newListing.listing.image_url" required>
   <input class="login-credentials" name="listing_title" placeholder="Title" ng-model="$ctrl.newListing.listing.title" required>
-
-
-
-
-
   <input class="login-credentials" name="guest_capacity" placeholder="Guest Capacity" ng-model="$ctrl.newListing.listing.guest_capacity" required>
   <input class="login-credentials" name="bed_capacity" placeholder="Bed Capacity" ng-model="$ctrl.newListing.listing.bed_capacity" required>
   <input class="login-credentials" name="daily_price" placeholder="Daily Price" ng-model="$ctrl.newListing.listing.daily_price" required>
-</div>
+
 <form class="login-credentials">
   <input  ng-model="$ctrl.newListing.listing.sharing_type" type="radio" name="sharing_type" value="{{'shared_room'}}"> {{$ctrl.shared_room_type['shared_room']}}<br>
   <input  ng-model="$ctrl.newListing.listing.sharing_type" type="radio" name="sharing_type" value="{{'entire_house'}}"> {{$ctrl.shared_room_type['entire_house']}}<br>
   <input  ng-model="$ctrl.newListing.listing.sharing_type" type="radio" name="sharing_type" value="{{'private_room'}}"> {{$ctrl.shared_room_type['private_room']}}
 </form><br>
 <button class="btn-eyirbiyenbi btn login-credentials" ng-click="$ctrl.addListing()">Add Listing</button>
+</div>
